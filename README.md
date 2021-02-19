@@ -25,10 +25,48 @@ https://etherscan.io/tx/0xb0506f5ce5dd7d9e3be0e768e2c595308d4c7ed66c27bbacd17271
 https://etherscan.io/tx/0xdaf71f05b49ab56310f2db3dc82395c629717018868c9b6b325170e3ced46030
 https://etherscan.io/tx/0xa7afa9d3465ed689f93b3a0722eb598a867fa70022aca8c2522a336b3d4dad34
 
-[Snapshot Balance Data](./balances.js) Need to decode this still. Each entry looks like:
+[Snapshot Balance Data](./balances.js) Need to decode this still. Each entry was passed into `setRAccountBalances` and looks like:
 
 ```
 balances.account	bytes20 0x96f66bf7bf05690436dd854eae8db31d9790f4b9
+```
+
+```json
+{
+    "inputs": [{
+        "components": [{
+            "internalType": "bytes20",
+            "name": "account",
+            "type": "bytes20"
+        }, {
+            "components": [{
+                "internalType": "uint256",
+                "name": "blockHeight",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "paid",
+                "type": "bool"
+            }],
+            "internalType": "struct RedFoxMigration.TimedBalance[]",
+            "name": "balances",
+            "type": "tuple[]"
+        }],
+        "internalType": "struct RedFoxMigration.SetRBalance[]",
+        "name": "balances",
+        "type": "tuple[]"
+    }],
+    "name": "setRAccountBalances",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}
 ```
 
 See [index.js](./index.js) for attempts to decode.  [tokenabi.js](./tokenabi.js) has some of the data structures from
