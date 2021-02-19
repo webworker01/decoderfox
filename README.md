@@ -1,5 +1,16 @@
 # decoderfox
 
+# Instructions
+
+```
+git clone https://github.com/webworker01/decoderfox.git
+cd ./decoderfox
+npm update
+npm start
+```
+
+# Information
+
 Swap Contract https://etherscan.io/address/0xd82f7e3956d3ff391c927cd7d0a7a57c360df5b9#code
 
 [Swap Contract Source](./contract.sol)
