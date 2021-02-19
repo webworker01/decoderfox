@@ -1,6 +1,7 @@
 # decoderfox
 
 Swap Contract https://etherscan.io/address/0xd82f7e3956d3ff391c927cd7d0a7a57c360df5b9#code
+
 [Swap Contract Source](./contract.sol)
 
 Contract Deployer https://etherscan.io/address/0xdb708e2b290057cdfbea2d1ba450c6598abbcd37
@@ -20,4 +21,34 @@ balances.account	bytes20 0x96f66bf7bf05690436dd854eae8db31d9790f4b9
 ```
 
 See index.js for attempts to decode.  [tokenabi.js](./tokenabi.js) has some of the data structures from
-the contract. The contract itself should also provide useful context to figure this out.
+the contract. The contract itself should also provide useful context to figure this out. 
+
+Seems the data is encoded in bytes20 format. Think we just need to figure out the abi format to pass into
+simpleDecode, but not 100% sure. 
+
+Obviously wrong e.g.
+
+```
+var decoded = abi.simpleDecode("balanceOf(address):(uint256)", balancedata)
+```
+
+Outputs:
+
+```
+0x6f52614cb92b7159e5182fa8d58950b7035503bb
+[
+  BN {
+    negative: 0,
+    words: [
+       3749168, 35196238,
+      52848147, 13944032,
+      20265317,  9997772,
+      37102483, 14206161,
+      40252722,   794125,
+             0
+    ],
+    length: 10,
+    red: null
+  }
+]
+```
