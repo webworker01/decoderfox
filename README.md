@@ -1,6 +1,6 @@
 # decoderfox
 
-# Instructions
+## Instructions
 
 ```
 git clone https://github.com/webworker01/decoderfox.git
@@ -9,7 +9,7 @@ npm update
 npm start
 ```
 
-# Information
+## Information
 
 Swap Contract https://etherscan.io/address/0xd82f7e3956d3ff391c927cd7d0a7a57c360df5b9#code
 
