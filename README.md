@@ -31,7 +31,7 @@ https://etherscan.io/tx/0xa7afa9d3465ed689f93b3a0722eb598a867fa70022aca8c2522a33
 balances.account	bytes20 0x96f66bf7bf05690436dd854eae8db31d9790f4b9
 ```
 
-See index.js for attempts to decode.  [tokenabi.js](./tokenabi.js) has some of the data structures from
+See [index.js](./index.js) for attempts to decode.  [tokenabi.js](./tokenabi.js) has some of the data structures from
 the contract. The contract itself should also provide useful context to figure this out. 
 
 Seems the data is encoded in bytes20 format. Think we just need to figure out the abi format to pass into
