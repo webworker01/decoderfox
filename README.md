@@ -11,8 +11,9 @@ npm start
 
 ## Information
 
-Swap Contract https://etherscan.io/address/0xd82f7e3956d3ff391c927cd7d0a7a57c360df5b9#code
-
+ERC20 Token     https://etherscan.io/address/0xa1d6df714f91debf4e0802a542e13067f31b8262#code
+[ERC20 Token Source](./contract2.sol)
+Swap Contract   https://etherscan.io/address/0xd82f7e3956d3ff391c927cd7d0a7a57c360df5b9#code
 [Swap Contract Source](./contract.sol#L807)
 
 Contract Deployer https://etherscan.io/address/0xdb708e2b290057cdfbea2d1ba450c6598abbcd37
@@ -25,7 +26,7 @@ https://etherscan.io/tx/0xb0506f5ce5dd7d9e3be0e768e2c595308d4c7ed66c27bbacd17271
 https://etherscan.io/tx/0xdaf71f05b49ab56310f2db3dc82395c629717018868c9b6b325170e3ced46030
 https://etherscan.io/tx/0xa7afa9d3465ed689f93b3a0722eb598a867fa70022aca8c2522a336b3d4dad34
 
-[Snapshot Balance Data](./balances.js) Need to decode this still. Each entry was passed into `setRAccountBalances` and looks like:
+[Snapshot Balance Data](./balances.js) Need to decode this still. Each entry was passed into `setRAccountBalances((bytes20,tuple[])[])` and looks like:
 
 ```
 balances.account	bytes20 0x96f66bf7bf05690436dd854eae8db31d9790f4b9
