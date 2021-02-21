@@ -13,12 +13,13 @@ npm start
 
 ERC20 Token [(source)](./contract2.sol) https://etherscan.io/address/0xa1d6df714f91debf4e0802a542e13067f31b8262#code
 
-
 Swap Contract [(source)](./contract.sol#L807) https://etherscan.io/address/0xd82f7e3956d3ff391c927cd7d0a7a57c360df5b9#code
 
 Contract Deployer https://etherscan.io/address/0xdb708e2b290057cdfbea2d1ba450c6598abbcd37
 
-Snapshot Transactions 
+Snapshot Transactions
+
+[KMD Based Richlist](https://dexstats.info/richlist.php?asset=rfox)
 
 https://etherscan.io/tx/0x751111109d3145bf4e1128827ab0d4ed1e0461e15ec14e968dfa389ea2d8edda
 https://etherscan.io/tx/0xe81d4efe11a31cd1e043e1719c324a32f1bb3d19b5815c56df14014893ec7029
@@ -71,10 +72,10 @@ balances.account	bytes20 0x96f66bf7bf05690436dd854eae8db31d9790f4b9
 ```
 
 See [index.js](./index.js) for attempts to decode.  [tokenabi.js](./tokenabi.js) has some of the data structures from
-the contract. The contract itself should also provide useful context to figure this out. 
+the contract. The contract itself should also provide useful context to figure this out.
 
 Seems the data is encoded in bytes20 format. Think we just need to figure out the abi format to pass into
-simpleDecode, but not 100% sure. 
+simpleDecode, but not 100% sure.
 
 Obviously wrong e.g.
 
