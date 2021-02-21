@@ -18,6 +18,7 @@ Swap Contract [(source)](./contract.sol#L807) https://etherscan.io/address/0xd82
 Contract Deployer https://etherscan.io/address/0xdb708e2b290057cdfbea2d1ba450c6598abbcd37
 
 [KMD Based Richlist](https://dexstats.info/richlist.php?asset=rfox)
+
 [Verus Mobile Claiming Code](https://github.com/VerusCoin/Verus-Mobile/commit/50b3bd55a61e38eccffc7967c2c629a6c9d17855)
 
 Snapshot Transactions:
