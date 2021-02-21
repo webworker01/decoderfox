@@ -21,6 +21,8 @@ Contract Deployer https://etherscan.io/address/0xdb708e2b290057cdfbea2d1ba450c65
 
 [Verus Mobile Claiming Code](https://github.com/VerusCoin/Verus-Mobile/commit/50b3bd55a61e38eccffc7967c2c629a6c9d17855)
 
+[Redfox Whitepaper](https://docsend.com/view/a2kfkrmgcmwvs2rq)
+
 Snapshot Transactions:
 * https://etherscan.io/tx/0x751111109d3145bf4e1128827ab0d4ed1e0461e15ec14e968dfa389ea2d8edda
 * https://etherscan.io/tx/0xe81d4efe11a31cd1e043e1719c324a32f1bb3d19b5815c56df14014893ec7029
