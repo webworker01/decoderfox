@@ -42,42 +42,4 @@ Snapshot Transactions:
 * https://etherscan.io/tx/0xdaf71f05b49ab56310f2db3dc82395c629717018868c9b6b325170e3ced46030
 * https://etherscan.io/tx/0xa7afa9d3465ed689f93b3a0722eb598a867fa70022aca8c2522a336b3d4dad34
 
-Each entry was passed into `setRAccountBalances(bytes20 account, tuple[uint256 blockHeight, uint256 amount, bool paid][])` and has this ABI format [see tokenabi.js](./tokenabi.js):
-
-```json
-{
-    "inputs": [{
-        "components": [{
-            "internalType": "bytes20",
-            "name": "account",
-            "type": "bytes20"
-        }, {
-            "components": [{
-                "internalType": "uint256",
-                "name": "blockHeight",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "amount",
-                "type": "uint256"
-            },
-            {
-                "internalType": "bool",
-                "name": "paid",
-                "type": "bool"
-            }],
-            "internalType": "struct RedFoxMigration.TimedBalance[]",
-            "name": "balances",
-            "type": "tuple[]"
-        }],
-        "internalType": "struct RedFoxMigration.SetRBalance[]",
-        "name": "balances",
-        "type": "tuple[]"
-    }],
-    "name": "setRAccountBalances",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}
-```
+Each entry was passed into `setRAccountBalances(bytes20 account, tuple[uint256 blockHeight, uint256 amount, bool paid][])` and has this ABI format [see tokenabi.js](./tokenabi.js#L398):
