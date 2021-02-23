@@ -26,7 +26,7 @@ Contract Deployer https://etherscan.io/address/0xdb708e2b290057cdfbea2d1ba450c65
 [Redfox Whitepaper](https://docsend.com/view/a2kfkrmgcmwvs2rq)
 
 ### Verus Mobile Swap Process
-[Verus Mobile Claiming Code](https://github.com/VerusCoin/Verus-Mobile/blob/v0.2.0-beta-2/src/utils/api/channels/erc20/requests/specific/rfox/claimAccountBalance.js#L34-L54) calls [withdrawBalance contract function](https://github.com/webworker01/decoderfox/blob/main/RedFoxMigration.sol#L947)
+[Verus Mobile Claiming Code](https://github.com/VerusCoin/Verus-Mobile/blob/v0.2.0-beta-2/src/utils/api/channels/erc20/requests/specific/rfox/claimAccountBalance.js#L34-L54) calls [withdrawBalance contract function](https://github.com/webworker01/decoderfox/blob/main/RedFoxMigration.sol#L947-L969)
 
 * The claiming code sends the `pubkey` to the contract and signs the transaction with the `privkey`.
 * The smart contract code:
