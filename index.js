@@ -57,6 +57,7 @@ const alltransactions = [
   // '0xdc8f8df15f43f52e008121a5b950983010228adb043d01a9c1c3512afd143838'  // other tx
 ];
 
+//Convert hash160 to KMD address
 const hash160ToKMD = function(hash160) {
   let hash160Buf = Buffer.from(hash160.replace('0x', ''), 'hex');
   let version = Buffer.from('3c', 'hex'); // komodo prefix
@@ -66,7 +67,7 @@ const hash160ToKMD = function(hash160) {
   return bs58.encode(bytes);
 }
 
-// Import tx inputs and format for caching to file txinputs.js
+// Loop tx list, retrieve and parse data to console
 const parseTransactions = async function(alltransactions) {
   for (let txHash of alltransactions) {
     await web3.eth.getTransaction(txHash, (error, txResult) => {
