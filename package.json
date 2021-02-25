@@ -1,14 +1,14 @@
 {
   "name": "decoderfox",
   "version": "1.0.0",
-  "description": "",
+  "description": "decode rfox",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "author": "webworker01",
-  "license": "MIT",
+  "homepage": "https://github.com/webworker01/decoderfox",
+  "license": "GPLV2",
   "dependencies": {
     "bignum": "^0.13.1",
     "bs58": "^4.0.1",

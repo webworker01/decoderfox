@@ -13,13 +13,13 @@ const decoder = new InputDataDecoder('./tokenabi.json');
 
 const ethDecimals = 1000000000000000000;
 
-var deployeraddress = '0xdb708e2b290057cdfbea2d1ba450c6598abbcd37';
-var swapcontract = '0xd82f7e3956d3ff391c927cd7d0a7a57c360df5b9';
-var tokencontract = '0xa1d6df714f91debf4e0802a542e13067f31b8262';
-var oldcontracts = ['0xca6f2a9c0c55082edc59533306669ffe64a38c03', '0x66b6440126e76f94549a2267831727a76d90f1d4'];
+const deployeraddress = '0xdb708e2b290057cdfbea2d1ba450c6598abbcd37';
+const swapcontract = '0xd82f7e3956d3ff391c927cd7d0a7a57c360df5b9';
+const tokencontract = '0xa1d6df714f91debf4e0802a542e13067f31b8262';
+const oldcontracts = ['0xca6f2a9c0c55082edc59533306669ffe64a38c03', '0x66b6440126e76f94549a2267831727a76d90f1d4'];
 
 // https://etherscan.io/txs?a=0xdb708e2b290057cdfbea2d1ba450c6598abbcd37
-var alltransactions = [
+const alltransactions = [
   // '0xee9d046464bc03f0116c245918ecd48327d9ad5d1ffc1fe4b0177a99af6e8d95', // eth deposit
   // '0xb330572e0ebb9db7b277a3a40f841528514167bf7281a86eeb1c65efb7e767e2', // old contracts
   // '0x5f1e79246dac3b9afade2735e1b5cd001b86ba9ea4e74ce30f42573d170a2aac', // old contracts
@@ -57,17 +57,17 @@ var alltransactions = [
   // '0xdc8f8df15f43f52e008121a5b950983010228adb043d01a9c1c3512afd143838'  // other tx
 ];
 
-function hash160ToKMD(hash160) {
-  var hash160Buf = new Buffer(hash160.replace('0x', ''), 'hex');
-  var version = new Buffer('3c', 'hex'); // komodo prefix
-  var hash = Buffer.concat([version, hash160Buf]);
-  var checksum = crypto.createHash('sha256').update(crypto.createHash('sha256').update(hash).digest()).digest();
-  var bytes = Buffer.concat([hash, checksum.slice(0, 4)]);
+const hash160ToKMD = function(hash160) {
+  let hash160Buf = Buffer.from(hash160.replace('0x', ''), 'hex');
+  let version = Buffer.from('3c', 'hex'); // komodo prefix
+  let hash = Buffer.concat([version, hash160Buf]);
+  let checksum = crypto.createHash('sha256').update(crypto.createHash('sha256').update(hash).digest()).digest();
+  let bytes = Buffer.concat([hash, checksum.slice(0, 4)]);
   return bs58.encode(bytes);
 }
 
 // Import tx inputs and format for caching to file txinputs.js
-let parseTransactions = async function(alltransactions) {
+const parseTransactions = async function(alltransactions) {
   for (let txHash of alltransactions) {
     await web3.eth.getTransaction(txHash, (error, txResult) => {
       console.log('TX: ' + txHash);
