@@ -2,6 +2,8 @@
 
 ## Instructions
 
+Tested on node v14.16.0
+
 ```
 git clone https://github.com/webworker01/decoderfox.git
 cd ./decoderfox
