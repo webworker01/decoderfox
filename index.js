@@ -1,14 +1,13 @@
 const config = require('./config');
 
 const crypto = require('crypto');
+const bignum = require('bignum');
+const bs58 = require('bs58')
 
 const Web3Eth = require('web3-eth');
 const Web3HttpProvider = require('web3-providers-http');
-
 const web3provider = new Web3HttpProvider(config.eth.nodeurl);
 const web3eth = new Web3Eth(web3provider);
-const bignum = require('bignum');
-const bs58 = require('bs58')
 
 const InputDataDecoder = require('./lib/inputdatadecoder');
 const decoder = new InputDataDecoder('./tokenabi.json');
