@@ -32,7 +32,7 @@ Contract Deployer https://etherscan.io/address/0xdb708e2b290057cdfbea2d1ba450c65
 * The smart contract code:
 * * Looks up the `account` stored in the snapshot stored as hash160
 * * Checks that it is not already paid and past the specified block height (as a timelock)
-* * Transfers the tokens and marks the account as paid
+* * Transfers the tokens to the eth address at `pubkey` and marks the account as paid
 
 ### Snapshot decoding
 Snapshot Transactions:
@@ -43,3 +43,7 @@ Snapshot Transactions:
 * https://etherscan.io/tx/0xa7afa9d3465ed689f93b3a0722eb598a867fa70022aca8c2522a336b3d4dad34
 
 Each entry was passed into `setRAccountBalances(bytes20 account, tuple[uint256 blockHeight, uint256 amount, bool paid][])` and has this ABI format [see tokenabi.js](./tokenabi.js#L398-L436).
+
+### Results
+
+[Output of the script](./output.txt)
