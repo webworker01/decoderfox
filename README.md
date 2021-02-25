@@ -34,7 +34,7 @@ Contract Deployer https://etherscan.io/address/0xdb708e2b290057cdfbea2d1ba450c65
 * The smart contract code:
 * * Looks up the `account` stored in the snapshot stored as hash160
 * * Checks that it is not already paid and past the specified block height (as a timelock)
-* * Transfers the tokens to the eth address at `pubkey` and marks the account as paid
+* * Transfers the tokens to the eth address that send the transaction and marks the account as paid
 
 ### Snapshot decoding
 Snapshot Transactions:
