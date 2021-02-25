@@ -2,9 +2,11 @@ const config = require('./config');
 
 const crypto = require('crypto');
 
-const Web3 = require('web3');
-const web3provider = new Web3.providers.HttpProvider(config.eth.nodeurl);
-const web3 = new Web3(web3provider);
+const Web3Eth = require('web3-eth');
+const Web3HttpProvider = require('web3-providers-http');
+
+const web3provider = new Web3HttpProvider(config.eth.nodeurl);
+const web3eth = new Web3Eth(web3provider);
 const bignum = require('bignum');
 const bs58 = require('bs58')
 
@@ -70,7 +72,7 @@ const hash160ToKMD = function(hash160) {
 // Loop tx list, retrieve and parse data to console
 const parseTransactions = async function(alltransactions) {
     for (let txHash of alltransactions) {
-        await web3.eth.getTransaction(txHash, (error, txResult) => {
+        await web3eth.getTransaction(txHash, (error, txResult) => {
             console.log('TX: ' + txHash);
 
             if (!txResult['to']) {
