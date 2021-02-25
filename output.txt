@@ -15,7 +15,6 @@ setTokenContract
 TX: 0x751111109d3145bf4e1128827ab0d4ed1e0461e15ec14e968dfa389ea2d8edda
 setRAccountBalances
 account - blockHeight - amount - paid
-BigNumber.toString does not accept any parameters; base-10 is assumed
 RP3QdySVm8Faqvsxgu9SSPQqxxoKNzUfRh 11127543 80213371.25 false
 RXi2CJPC2uW94QPcaiRd6DYRP1ayLCCWZi 11127543 15025428.15 false
 RAv5HfRw1CwV7TgMYDKyMfiMFmvzKw4KWG 11127543 14000009.99 false
