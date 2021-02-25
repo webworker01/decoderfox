@@ -126,4 +126,5 @@ const parseTransactions = async function(alltransactions) {
     }
 }
 
+console.log('----------------------------------------------------------------------');
 parseTransactions(alltransactions);
