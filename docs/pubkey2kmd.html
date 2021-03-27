@@ -27,25 +27,46 @@
                 return Bitcoin.base58.encode(hexToBytes(binary25));
             };
 
+            var hash160 = function(pubkey) {
+                var publicKeyBytes = CryptoJS.enc.Hex.parse(pubkey.trim().replace(/^0x/, ''));
+                return hash160 = CryptoJS.RIPEMD160(CryptoJS.enc.Hex.parse(CryptoJS.SHA256(publicKeyBytes).toString())).toString();
+            }
+
             //Make the form work
             document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('convertButton').addEventListener('click', function() {
                     var pubkey = document.getElementById('pubkeyInput').value;
-                    var address = (pubkey.length > 0) ? pubkeyToKMD(pubkey) : '';
-                    document.getElementById('base58Output').value = address;
+
+                    if (pubkey.length > 0) {
+                        document.getElementById('hash160Output').value = hash160(pubkey);
+                        document.getElementById('base58Output').value = pubkeyToKMD(pubkey);
+                    } else {
+                        document.getElementById('hash160Output').value = '';
+                        document.getElementById('base58Output').value = '';
+                    }
                 });
             });
         </script>
     </head>
     <body>
-        <label for="pubkeyInput">Enter Pubkey (Compressed or Uncompressed):</label>
+        <fieldset>
+            <legend>Input</legend>
+            <label for="pubkeyInput">Enter Pubkey (Compressed or Uncompressed):</label>
+            <br>
+            <textarea name="pubkeyInput" id="pubkeyInput" cols="80" rows="5"></textarea>
+            <br>
+            <button id="convertButton">Convert</button>
+        </fieldset>
         <br>
-        <textarea name="pubkeyInput" id="pubkeyInput" cols="80" rows="10"></textarea>
-        <hr>
-        <label for="base58Output">Base58 KMD Address:</label>
-        <br>
-        <textarea name="base58Output" id="base58Output" cols="80" rows="10" readonly></textarea>
-        <br>
-        <button id="convertButton">Convert</button>
+        <fieldset>
+            <legend>Output</legend>
+            <label for="hash160Output">hash160 (sha256 + ripemd160):</label>
+            <br>
+            <textarea name="hash160Output" id="hash160Output" cols="80" rows="3" readonly></textarea>
+            <br><br>
+            <label for="base58Output">Base58 KMD Address:</label>
+            <br>
+            <textarea name="base58Output" id="base58Output" cols="80" rows="3" readonly></textarea>
+        </fieldset>
     </body>
 </html>
