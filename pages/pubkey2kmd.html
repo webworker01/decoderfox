@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js" integrity="sha512-nOQuvD9nKirvxDdvQ9OMqe2dgapbPB7vYAMrzJihw5m+aNcf0dX53m6YxM4LgA9u8e9eg9QX+/+mPu8kCNpV2A==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bitcoinjs-lib/0.2.0-1/bitcoinjs-min.js" integrity="sha512-5lmrSTfjJTFToLKhugyxZAOqXdoG8mSNLXjPrchSGrcCAS9j76/UW/ffe+PZErWJaw6szUQgNSIRTP/EjvrISg==" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            var kmd_version = '3c'; //aka 60
+
+            // Convert a hex string to a byte array
+            function hexToBytes(hex) {
+                for (var bytes = [], c = 0; c < hex.length; c += 2)
+                bytes.push(parseInt(hex.substr(c, 2), 16));
+                return bytes;
+            }
+
+            // Convert pubkey to KMD format address (compressed or uncompressed)
+            // @see https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses#How_to_create_Bitcoin_Address
+            var pubkeyToKMD = function(pubkey) {
+                var publicKeyBytes = CryptoJS.enc.Hex.parse(pubkey.trim().replace(/^0x/, ''));
+                var hash160 = CryptoJS.RIPEMD160(CryptoJS.enc.Hex.parse(CryptoJS.SHA256(publicKeyBytes).toString())).toString();
+                var hashAndVersion = CryptoJS.enc.Hex.parse(kmd_version + '' + hash160.toString());
+                var addressChecksum = CryptoJS.SHA256(CryptoJS.SHA256(hashAndVersion)).toString().substr(0, 8);
+                var binary25 = hashAndVersion + addressChecksum;
+                return Bitcoin.base58.encode(hexToBytes(binary25));
+            };
+
+            //Make the form work
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('convertButton').addEventListener('click', function() {
+                    var pubkey = document.getElementById('pubkeyInput').value;
+                    var address = (pubkey.length > 0) ? pubkeyToKMD(pubkey) : '';
+                    document.getElementById('base58Output').value = address;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <label for="pubkeyInput">Enter Pubkey (Compressed or Uncompressed):</label>
+        <br>
+        <textarea name="pubkeyInput" id="pubkeyInput" cols="80" rows="10"></textarea>
+        <hr>
+        <label for="base58Output">Base58 KMD Address:</label>
+        <br>
+        <textarea name="base58Output" id="base58Output" cols="80" rows="10" readonly></textarea>
+        <br>
+        <button id="convertButton">Convert</button>
+    </body>
+</html>
