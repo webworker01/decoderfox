@@ -27,6 +27,7 @@
                 return Bitcoin.base58.encode(hexToBytes(binary25));
             };
 
+            // Convert pubkey to hash160 (compressed or uncompressed)
             var hash160 = function(pubkey) {
                 var publicKeyBytes = CryptoJS.enc.Hex.parse(pubkey.trim().replace(/^0x/, ''));
                 return hash160 = CryptoJS.RIPEMD160(CryptoJS.enc.Hex.parse(CryptoJS.SHA256(publicKeyBytes).toString())).toString();
